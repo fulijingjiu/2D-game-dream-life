@@ -1,0 +1,13 @@
+{
+	"checked": [
+		"timing",
+		"return_to_idle",
+		"hit_event",
+		"replay",
+		"layer_toggles",
+		"step",
+		"loop"
+	],
+	"errors": [],
+	"loaded_layer_textures": 64
+}

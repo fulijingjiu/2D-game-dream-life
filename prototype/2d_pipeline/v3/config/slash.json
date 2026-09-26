@@ -1,0 +1,224 @@
+{
+  "id": "slash",
+  "next": "idle",
+  "loop": false,
+  "frames": [
+    {
+      "id": 1,
+      "duration_ms": 85,
+      "pelvis": [
+        0,
+        2.12
+      ],
+      "lean_deg": 0,
+      "hand_r": [
+        0.51,
+        2.76
+      ],
+      "sword_deg": -35,
+      "scarf_deg": -8,
+      "coat_deg": 0,
+      "event": ""
+    },
+    {
+      "id": 2,
+      "duration_ms": 65,
+      "pelvis": [
+        -0.015,
+        2.1
+      ],
+      "lean_deg": -2,
+      "hand_r": [
+        0.36,
+        2.99
+      ],
+      "sword_deg": 0,
+      "scarf_deg": -6,
+      "coat_deg": -2,
+      "event": ""
+    },
+    {
+      "id": 3,
+      "duration_ms": 75,
+      "pelvis": [
+        -0.06,
+        2.07
+      ],
+      "lean_deg": -6,
+      "hand_r": [
+        -0.32,
+        3.2
+      ],
+      "sword_deg": 115,
+      "scarf_deg": 4,
+      "coat_deg": -5,
+      "event": "",
+      "elbow_bend": 1
+    },
+    {
+      "id": 4,
+      "duration_ms": 90,
+      "pelvis": [
+        -0.09,
+        2.04
+      ],
+      "lean_deg": -9,
+      "hand_r": [
+        -0.35,
+        3.42
+      ],
+      "sword_deg": 145,
+      "scarf_deg": 9,
+      "coat_deg": -8,
+      "event": "",
+      "elbow_bend": 1
+    },
+    {
+      "id": 5,
+      "duration_ms": 35,
+      "pelvis": [
+        -0.02,
+        2.08
+      ],
+      "lean_deg": -3,
+      "hand_r": [
+        0.36,
+        3.42
+      ],
+      "sword_deg": 102,
+      "scarf_deg": 3,
+      "coat_deg": -3,
+      "event": ""
+    },
+    {
+      "id": 6,
+      "duration_ms": 30,
+      "pelvis": [
+        0.1,
+        2.1
+      ],
+      "lean_deg": 7,
+      "hand_r": [
+        1.05,
+        3.27
+      ],
+      "sword_deg": 42,
+      "scarf_deg": -9,
+      "coat_deg": 4,
+      "event": ""
+    },
+    {
+      "id": 7,
+      "duration_ms": 75,
+      "pelvis": [
+        0.16,
+        2.08
+      ],
+      "lean_deg": 11,
+      "hand_r": [
+        1.35,
+        2.94
+      ],
+      "sword_deg": 0,
+      "scarf_deg": -26,
+      "coat_deg": 12,
+      "event": "hit"
+    },
+    {
+      "id": 8,
+      "duration_ms": 40,
+      "pelvis": [
+        0.15,
+        2.03
+      ],
+      "lean_deg": 13,
+      "hand_r": [
+        1.17,
+        2.46
+      ],
+      "sword_deg": -43,
+      "scarf_deg": -32,
+      "coat_deg": 16,
+      "event": ""
+    },
+    {
+      "id": 9,
+      "duration_ms": 50,
+      "pelvis": [
+        0.1,
+        2.02
+      ],
+      "lean_deg": 8,
+      "hand_r": [
+        0.88,
+        2.2
+      ],
+      "sword_deg": -72,
+      "scarf_deg": -22,
+      "coat_deg": 12,
+      "event": ""
+    },
+    {
+      "id": 10,
+      "duration_ms": 65,
+      "pelvis": [
+        0.04,
+        2.06
+      ],
+      "lean_deg": 4,
+      "hand_r": [
+        0.65,
+        2.36
+      ],
+      "sword_deg": -55,
+      "scarf_deg": -12,
+      "coat_deg": 5,
+      "event": ""
+    },
+    {
+      "id": 11,
+      "duration_ms": 65,
+      "pelvis": [
+        0.01,
+        2.1
+      ],
+      "lean_deg": 1,
+      "hand_r": [
+        0.53,
+        2.62
+      ],
+      "sword_deg": -40,
+      "scarf_deg": -4,
+      "coat_deg": 1,
+      "event": ""
+    },
+    {
+      "id": 12,
+      "duration_ms": 85,
+      "pelvis": [
+        0,
+        2.12
+      ],
+      "lean_deg": 0,
+      "hand_r": [
+        0.51,
+        2.76
+      ],
+      "sword_deg": -35,
+      "scarf_deg": -8,
+      "coat_deg": 0,
+      "event": ""
+    }
+  ],
+  "effects": {
+    "frames": [
+      6,
+      7,
+      8
+    ],
+    "radius": 1.46,
+    "width": 0.24,
+    "color": "#f0c98a",
+    "span_deg": 48
+  }
+}

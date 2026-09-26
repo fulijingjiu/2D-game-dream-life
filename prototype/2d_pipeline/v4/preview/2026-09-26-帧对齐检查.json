@@ -1,0 +1,274 @@
+[
+  {
+    "frame": 1,
+    "name": "战斗待机",
+    "source": "2026-09-26-01-战斗待机.png",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "source_root": [
+      697.75,
+      990
+    ],
+    "source_sole_ranges": [
+      [
+        478,
+        572
+      ],
+      [
+        791,
+        952
+      ]
+    ],
+    "scale": 0.25,
+    "offset": [
+      2,
+      -2
+    ],
+    "export_bbox": [
+      83,
+      17,
+      311,
+      245
+    ]
+  },
+  {
+    "frame": 2,
+    "name": "回收蓄力",
+    "source": "2026-09-26-02-回收蓄力.png",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "source_root": [
+      765.0,
+      977
+    ],
+    "source_sole_ranges": [
+      [
+        510,
+        607
+      ],
+      [
+        890,
+        1055
+      ]
+    ],
+    "scale": 0.25,
+    "offset": [
+      -15,
+      2
+    ],
+    "export_bbox": [
+      66,
+      15,
+      249,
+      246
+    ]
+  },
+  {
+    "frame": 3,
+    "name": "蓄力峰值",
+    "source": "2026-09-26-03-蓄力峰值.png",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "source_root": [
+      765.75,
+      981
+    ],
+    "source_sole_ranges": [
+      [
+        491,
+        598
+      ],
+      [
+        895,
+        1081
+      ]
+    ],
+    "scale": 0.25,
+    "offset": [
+      -15,
+      1
+    ],
+    "export_bbox": [
+      64,
+      25,
+      259,
+      246
+    ]
+  },
+  {
+    "frame": 4,
+    "name": "挥出",
+    "source": "2026-09-26-04-挥出.png",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "source_root": [
+      709.25,
+      975
+    ],
+    "source_sole_ranges": [
+      [
+        424,
+        531
+      ],
+      [
+        848,
+        1036
+      ]
+    ],
+    "scale": 0.25,
+    "offset": [
+      -1,
+      2
+    ],
+    "export_bbox": [
+      40,
+      18,
+      332,
+      246
+    ]
+  },
+  {
+    "frame": 5,
+    "name": "命中",
+    "source": "2026-09-26-05-命中.png",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "source_root": [
+      671.5,
+      961
+    ],
+    "source_sole_ranges": [
+      [
+        368,
+        473
+      ],
+      [
+        834,
+        1013
+      ]
+    ],
+    "scale": 0.25,
+    "offset": [
+      8,
+      6
+    ],
+    "export_bbox": [
+      37,
+      25,
+      341,
+      246
+    ]
+  },
+  {
+    "frame": 6,
+    "name": "跟随",
+    "source": "2026-09-26-06-跟随.png",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "source_root": [
+      683.5,
+      966
+    ],
+    "source_sole_ranges": [
+      [
+        411,
+        512
+      ],
+      [
+        821,
+        992
+      ]
+    ],
+    "scale": 0.25,
+    "offset": [
+      5,
+      4
+    ],
+    "export_bbox": [
+      44,
+      22,
+      296,
+      245
+    ]
+  },
+  {
+    "frame": 7,
+    "name": "收势",
+    "source": "2026-09-26-07-收势.png",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "source_root": [
+      702.0,
+      989
+    ],
+    "source_sole_ranges": [
+      [
+        483,
+        579
+      ],
+      [
+        793,
+        955
+      ]
+    ],
+    "scale": 0.25,
+    "offset": [
+      0,
+      -1
+    ],
+    "export_bbox": [
+      74,
+      17,
+      267,
+      246
+    ]
+  },
+  {
+    "frame": 8,
+    "name": "归位",
+    "source": "2026-09-26-08-归位.png",
+    "source_size": [
+      1536,
+      1024
+    ],
+    "source_root": [
+      697.75,
+      990
+    ],
+    "source_sole_ranges": [
+      [
+        478,
+        572
+      ],
+      [
+        791,
+        952
+      ]
+    ],
+    "scale": 0.25,
+    "offset": [
+      2,
+      -2
+    ],
+    "export_bbox": [
+      83,
+      17,
+      311,
+      245
+    ]
+  }
+]

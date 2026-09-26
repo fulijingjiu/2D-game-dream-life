@@ -1,0 +1,194 @@
+{
+  "errors": [],
+  "canvas": [
+    256,
+    192
+  ],
+  "root_px": [
+    112,
+    176
+  ],
+  "slash_duration_ms": 760,
+  "slash_frames": 12,
+  "idle_frames": 4,
+  "records": [
+    {
+      "clip": "slash",
+      "frame": 1,
+      "bbox": [
+        73,
+        28,
+        169,
+        176
+      ],
+      "layer_difference_pixels": 0
+    },
+    {
+      "clip": "slash",
+      "frame": 2,
+      "bbox": [
+        73,
+        28,
+        171,
+        176
+      ],
+      "layer_difference_pixels": 0
+    },
+    {
+      "clip": "slash",
+      "frame": 3,
+      "bbox": [
+        79,
+        15,
+        143,
+        176
+      ],
+      "layer_difference_pixels": 0
+    },
+    {
+      "clip": "slash",
+      "frame": 4,
+      "bbox": [
+        64,
+        28,
+        143,
+        176
+      ],
+      "layer_difference_pixels": 0
+    },
+    {
+      "clip": "slash",
+      "frame": 5,
+      "bbox": [
+        82,
+        7,
+        143,
+        176
+      ],
+      "layer_difference_pixels": 0
+    },
+    {
+      "clip": "slash",
+      "frame": 6,
+      "bbox": [
+        81,
+        17,
+        195,
+        176
+      ],
+      "layer_difference_pixels": 0
+    },
+    {
+      "clip": "slash",
+      "frame": 7,
+      "bbox": [
+        70,
+        29,
+        205,
+        176
+      ],
+      "layer_difference_pixels": 0
+    },
+    {
+      "clip": "slash",
+      "frame": 8,
+      "bbox": [
+        66,
+        33,
+        199,
+        176
+      ],
+      "layer_difference_pixels": 0
+    },
+    {
+      "clip": "slash",
+      "frame": 9,
+      "bbox": [
+        70,
+        32,
+        158,
+        176
+      ],
+      "layer_difference_pixels": 0
+    },
+    {
+      "clip": "slash",
+      "frame": 10,
+      "bbox": [
+        74,
+        30,
+        162,
+        176
+      ],
+      "layer_difference_pixels": 0
+    },
+    {
+      "clip": "slash",
+      "frame": 11,
+      "bbox": [
+        79,
+        29,
+        167,
+        176
+      ],
+      "layer_difference_pixels": 0
+    },
+    {
+      "clip": "slash",
+      "frame": 12,
+      "bbox": [
+        73,
+        28,
+        169,
+        176
+      ],
+      "layer_difference_pixels": 0
+    },
+    {
+      "clip": "idle",
+      "frame": 1,
+      "bbox": [
+        73,
+        28,
+        169,
+        176
+      ],
+      "layer_difference_pixels": 0
+    },
+    {
+      "clip": "idle",
+      "frame": 2,
+      "bbox": [
+        74,
+        27,
+        169,
+        176
+      ],
+      "layer_difference_pixels": 0
+    },
+    {
+      "clip": "idle",
+      "frame": 3,
+      "bbox": [
+        73,
+        28,
+        169,
+        176
+      ],
+      "layer_difference_pixels": 0
+    },
+    {
+      "clip": "idle",
+      "frame": 4,
+      "bbox": [
+        72,
+        28,
+        169,
+        176
+      ],
+      "layer_difference_pixels": 0
+    }
+  ],
+  "first_equals_last": true,
+  "max_rig_error": 4.9e-07
+}

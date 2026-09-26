@@ -1,0 +1,298 @@
+[
+  {
+    "clip": "slash",
+    "frame": 1,
+    "hand_clamped_units": 0,
+    "grip_error_units": 0.0,
+    "ankles": [
+      [
+        -0.42,
+        0.0,
+        0.204
+      ],
+      [
+        0.48,
+        0.0,
+        0.204
+      ]
+    ],
+    "evaluated_pose_error_units": 2.5e-07,
+    "evaluated_grip_error_units": 1.2e-07
+  },
+  {
+    "clip": "slash",
+    "frame": 2,
+    "hand_clamped_units": 0,
+    "grip_error_units": 0.0,
+    "ankles": [
+      [
+        -0.42,
+        0.0,
+        0.204
+      ],
+      [
+        0.48,
+        0.0,
+        0.204
+      ]
+    ]
+  },
+  {
+    "clip": "slash",
+    "frame": 3,
+    "hand_clamped_units": 0,
+    "grip_error_units": 0.0,
+    "ankles": [
+      [
+        -0.42,
+        0.0,
+        0.204
+      ],
+      [
+        0.48,
+        0.0,
+        0.204
+      ]
+    ]
+  },
+  {
+    "clip": "slash",
+    "frame": 4,
+    "hand_clamped_units": 0,
+    "grip_error_units": 0.0,
+    "ankles": [
+      [
+        -0.42,
+        0.0,
+        0.204
+      ],
+      [
+        0.48,
+        0.0,
+        0.204
+      ]
+    ],
+    "evaluated_pose_error_units": 2.7e-07,
+    "evaluated_grip_error_units": 2.5e-07
+  },
+  {
+    "clip": "slash",
+    "frame": 5,
+    "hand_clamped_units": 0,
+    "grip_error_units": 0.0,
+    "ankles": [
+      [
+        -0.42,
+        0.0,
+        0.204
+      ],
+      [
+        0.48,
+        0.0,
+        0.204
+      ]
+    ]
+  },
+  {
+    "clip": "slash",
+    "frame": 6,
+    "hand_clamped_units": 0,
+    "grip_error_units": 0.0,
+    "ankles": [
+      [
+        -0.42,
+        0.0,
+        0.204
+      ],
+      [
+        0.48,
+        0.0,
+        0.204
+      ]
+    ]
+  },
+  {
+    "clip": "slash",
+    "frame": 7,
+    "hand_clamped_units": 0,
+    "grip_error_units": 0.0,
+    "ankles": [
+      [
+        -0.42,
+        0.0,
+        0.204
+      ],
+      [
+        0.48,
+        0.0,
+        0.204
+      ]
+    ],
+    "evaluated_pose_error_units": 4.9e-07,
+    "evaluated_grip_error_units": 1.2e-07
+  },
+  {
+    "clip": "slash",
+    "frame": 8,
+    "hand_clamped_units": 0,
+    "grip_error_units": 0.0,
+    "ankles": [
+      [
+        -0.42,
+        0.0,
+        0.204
+      ],
+      [
+        0.48,
+        0.0,
+        0.204
+      ]
+    ]
+  },
+  {
+    "clip": "slash",
+    "frame": 9,
+    "hand_clamped_units": 0,
+    "grip_error_units": 0.0,
+    "ankles": [
+      [
+        -0.42,
+        0.0,
+        0.204
+      ],
+      [
+        0.48,
+        0.0,
+        0.204
+      ]
+    ],
+    "evaluated_pose_error_units": 2.7e-07,
+    "evaluated_grip_error_units": 4.8e-07
+  },
+  {
+    "clip": "slash",
+    "frame": 10,
+    "hand_clamped_units": 0,
+    "grip_error_units": 0.0,
+    "ankles": [
+      [
+        -0.42,
+        0.0,
+        0.204
+      ],
+      [
+        0.48,
+        0.0,
+        0.204
+      ]
+    ]
+  },
+  {
+    "clip": "slash",
+    "frame": 11,
+    "hand_clamped_units": 0,
+    "grip_error_units": 0.0,
+    "ankles": [
+      [
+        -0.42,
+        0.0,
+        0.204
+      ],
+      [
+        0.48,
+        0.0,
+        0.204
+      ]
+    ]
+  },
+  {
+    "clip": "slash",
+    "frame": 12,
+    "hand_clamped_units": 0,
+    "grip_error_units": 0.0,
+    "ankles": [
+      [
+        -0.42,
+        0.0,
+        0.204
+      ],
+      [
+        0.48,
+        0.0,
+        0.204
+      ]
+    ]
+  },
+  {
+    "clip": "idle",
+    "frame": 1,
+    "hand_clamped_units": 0,
+    "grip_error_units": 0.0,
+    "ankles": [
+      [
+        -0.42,
+        0.0,
+        0.204
+      ],
+      [
+        0.48,
+        0.0,
+        0.204
+      ]
+    ]
+  },
+  {
+    "clip": "idle",
+    "frame": 2,
+    "hand_clamped_units": 0,
+    "grip_error_units": 0.0,
+    "ankles": [
+      [
+        -0.42,
+        0.0,
+        0.204
+      ],
+      [
+        0.48,
+        0.0,
+        0.204
+      ]
+    ]
+  },
+  {
+    "clip": "idle",
+    "frame": 3,
+    "hand_clamped_units": 0,
+    "grip_error_units": 0.0,
+    "ankles": [
+      [
+        -0.42,
+        0.0,
+        0.204
+      ],
+      [
+        0.48,
+        0.0,
+        0.204
+      ]
+    ]
+  },
+  {
+    "clip": "idle",
+    "frame": 4,
+    "hand_clamped_units": 0,
+    "grip_error_units": 0.0,
+    "ankles": [
+      [
+        -0.42,
+        0.0,
+        0.204
+      ],
+      [
+        0.48,
+        0.0,
+        0.204
+      ]
+    ]
+  }
+]

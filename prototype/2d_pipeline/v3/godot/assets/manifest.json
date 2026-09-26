@@ -1,0 +1,222 @@
+{
+  "canvas": [
+    256,
+    192
+  ],
+  "root_px": [
+    112,
+    176
+  ],
+  "layers": [
+    "body",
+    "weapon",
+    "hands",
+    "fx"
+  ],
+  "clips": {
+    "slash": {
+      "loop": false,
+      "next": "idle",
+      "frames": [
+        {
+          "id": 1,
+          "duration_ms": 85,
+          "paths": {
+            "composite": "slash/composite/01.png",
+            "body": "slash/body/01.png",
+            "weapon": "slash/weapon/01.png",
+            "hands": "slash/hands/01.png",
+            "fx": "slash/fx/01.png"
+          },
+          "event": ""
+        },
+        {
+          "id": 2,
+          "duration_ms": 65,
+          "paths": {
+            "composite": "slash/composite/02.png",
+            "body": "slash/body/02.png",
+            "weapon": "slash/weapon/02.png",
+            "hands": "slash/hands/02.png",
+            "fx": "slash/fx/02.png"
+          },
+          "event": ""
+        },
+        {
+          "id": 3,
+          "duration_ms": 75,
+          "paths": {
+            "composite": "slash/composite/03.png",
+            "body": "slash/body/03.png",
+            "weapon": "slash/weapon/03.png",
+            "hands": "slash/hands/03.png",
+            "fx": "slash/fx/03.png"
+          },
+          "event": ""
+        },
+        {
+          "id": 4,
+          "duration_ms": 90,
+          "paths": {
+            "composite": "slash/composite/04.png",
+            "body": "slash/body/04.png",
+            "weapon": "slash/weapon/04.png",
+            "hands": "slash/hands/04.png",
+            "fx": "slash/fx/04.png"
+          },
+          "event": ""
+        },
+        {
+          "id": 5,
+          "duration_ms": 35,
+          "paths": {
+            "composite": "slash/composite/05.png",
+            "body": "slash/body/05.png",
+            "weapon": "slash/weapon/05.png",
+            "hands": "slash/hands/05.png",
+            "fx": "slash/fx/05.png"
+          },
+          "event": ""
+        },
+        {
+          "id": 6,
+          "duration_ms": 30,
+          "paths": {
+            "composite": "slash/composite/06.png",
+            "body": "slash/body/06.png",
+            "weapon": "slash/weapon/06.png",
+            "hands": "slash/hands/06.png",
+            "fx": "slash/fx/06.png"
+          },
+          "event": ""
+        },
+        {
+          "id": 7,
+          "duration_ms": 75,
+          "paths": {
+            "composite": "slash/composite/07.png",
+            "body": "slash/body/07.png",
+            "weapon": "slash/weapon/07.png",
+            "hands": "slash/hands/07.png",
+            "fx": "slash/fx/07.png"
+          },
+          "event": "hit"
+        },
+        {
+          "id": 8,
+          "duration_ms": 40,
+          "paths": {
+            "composite": "slash/composite/08.png",
+            "body": "slash/body/08.png",
+            "weapon": "slash/weapon/08.png",
+            "hands": "slash/hands/08.png",
+            "fx": "slash/fx/08.png"
+          },
+          "event": ""
+        },
+        {
+          "id": 9,
+          "duration_ms": 50,
+          "paths": {
+            "composite": "slash/composite/09.png",
+            "body": "slash/body/09.png",
+            "weapon": "slash/weapon/09.png",
+            "hands": "slash/hands/09.png",
+            "fx": "slash/fx/09.png"
+          },
+          "event": ""
+        },
+        {
+          "id": 10,
+          "duration_ms": 65,
+          "paths": {
+            "composite": "slash/composite/10.png",
+            "body": "slash/body/10.png",
+            "weapon": "slash/weapon/10.png",
+            "hands": "slash/hands/10.png",
+            "fx": "slash/fx/10.png"
+          },
+          "event": ""
+        },
+        {
+          "id": 11,
+          "duration_ms": 65,
+          "paths": {
+            "composite": "slash/composite/11.png",
+            "body": "slash/body/11.png",
+            "weapon": "slash/weapon/11.png",
+            "hands": "slash/hands/11.png",
+            "fx": "slash/fx/11.png"
+          },
+          "event": ""
+        },
+        {
+          "id": 12,
+          "duration_ms": 85,
+          "paths": {
+            "composite": "slash/composite/12.png",
+            "body": "slash/body/12.png",
+            "weapon": "slash/weapon/12.png",
+            "hands": "slash/hands/12.png",
+            "fx": "slash/fx/12.png"
+          },
+          "event": ""
+        }
+      ]
+    },
+    "idle": {
+      "loop": true,
+      "next": "idle",
+      "frames": [
+        {
+          "id": 1,
+          "duration_ms": 180,
+          "paths": {
+            "composite": "idle/composite/01.png",
+            "body": "idle/body/01.png",
+            "weapon": "idle/weapon/01.png",
+            "hands": "idle/hands/01.png",
+            "fx": "idle/fx/01.png"
+          },
+          "event": ""
+        },
+        {
+          "id": 2,
+          "duration_ms": 180,
+          "paths": {
+            "composite": "idle/composite/02.png",
+            "body": "idle/body/02.png",
+            "weapon": "idle/weapon/02.png",
+            "hands": "idle/hands/02.png",
+            "fx": "idle/fx/02.png"
+          },
+          "event": ""
+        },
+        {
+          "id": 3,
+          "duration_ms": 180,
+          "paths": {
+            "composite": "idle/composite/03.png",
+            "body": "idle/body/03.png",
+            "weapon": "idle/weapon/03.png",
+            "hands": "idle/hands/03.png",
+            "fx": "idle/fx/03.png"
+          },
+          "event": ""
+        },
+        {
+          "id": 4,
+          "duration_ms": 180,
+          "paths": {
+            "composite": "idle/composite/04.png",
+            "body": "idle/body/04.png",
+            "weapon": "idle/weapon/04.png",
+            "hands": "idle/hands/04.png",
+            "fx": "idle/fx/04.png"
+          },
+          "event": ""
+        }
+      ]
+    }
+  }
+}

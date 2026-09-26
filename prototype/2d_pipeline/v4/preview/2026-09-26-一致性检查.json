@@ -1,0 +1,163 @@
+{
+  "frames": [
+    {
+      "frame": 1,
+      "name": "战斗待机",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "colour_run_width_px": 1.07,
+      "head_y": 75,
+      "body_height_px": 915,
+      "content_bbox": [
+        89,
+        31,
+        1524,
+        994
+      ],
+      "source_edge_bleed": [],
+      "colour_drift_vs_frame_01": 0.0,
+      "opaque_px": 266178,
+      "body_height_deviation": 0.0088
+    },
+    {
+      "frame": 2,
+      "name": "回收蓄力",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "colour_run_width_px": 1.08,
+      "head_y": 70,
+      "body_height_px": 907,
+      "content_bbox": [
+        105,
+        30,
+        1450,
+        980
+      ],
+      "source_edge_bleed": [],
+      "colour_drift_vs_frame_01": 0.1802,
+      "opaque_px": 295621,
+      "body_height_deviation": 0.0
+    },
+    {
+      "frame": 3,
+      "name": "蓄力峰值",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "colour_run_width_px": 1.11,
+      "head_y": 96,
+      "body_height_px": 885,
+      "content_bbox": [
+        89,
+        31,
+        1524,
+        985
+      ],
+      "source_edge_bleed": [],
+      "colour_drift_vs_frame_01": 0.1709,
+      "opaque_px": 335521,
+      "body_height_deviation": -0.0243
+    },
+    {
+      "frame": 4,
+      "name": "挥出",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "colour_run_width_px": 1.15,
+      "head_y": 64,
+      "body_height_px": 911,
+      "content_bbox": [
+        81,
+        62,
+        1522,
+        978
+      ],
+      "source_edge_bleed": [],
+      "colour_drift_vs_frame_01": 0.261,
+      "opaque_px": 346919,
+      "body_height_deviation": 0.0044
+    },
+    {
+      "frame": 5,
+      "name": "命中",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "colour_run_width_px": 1.17,
+      "head_y": 75,
+      "body_height_px": 886,
+      "content_bbox": [
+        65,
+        31,
+        1522,
+        998
+      ],
+      "source_edge_bleed": [],
+      "colour_drift_vs_frame_01": 0.1813,
+      "opaque_px": 359610,
+      "body_height_deviation": -0.0232
+    },
+    {
+      "frame": 6,
+      "name": "跟随",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "colour_run_width_px": 1.13,
+      "head_y": 73,
+      "body_height_px": 893,
+      "content_bbox": [
+        0,
+        13,
+        1530,
+        1002
+      ],
+      "source_edge_bleed": [
+        "left"
+      ],
+      "colour_drift_vs_frame_01": 0.2378,
+      "opaque_px": 321854,
+      "body_height_deviation": -0.0154
+    },
+    {
+      "frame": 7,
+      "name": "收势",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "colour_run_width_px": 1.1,
+      "head_y": 69,
+      "body_height_px": 920,
+      "content_bbox": [
+        169,
+        35,
+        1448,
+        994
+      ],
+      "source_edge_bleed": [],
+      "colour_drift_vs_frame_01": 0.2644,
+      "opaque_px": 270011,
+      "body_height_deviation": 0.0143
+    }
+  ],
+  "warnings": [
+    "帧 01 战斗待机：源图平均色块宽 1.07px，低于导出缩放所需的 4px，最近邻按点取样会得到噪点状边缘而不是像素簇；需让角色在源图里占比更小，或导出改为 BOX 平均并量化色板",
+    "帧 02 回收蓄力：源图平均色块宽 1.08px，低于导出缩放所需的 4px，最近邻按点取样会得到噪点状边缘而不是像素簇；需让角色在源图里占比更小，或导出改为 BOX 平均并量化色板",
+    "帧 03 蓄力峰值：源图平均色块宽 1.11px，低于导出缩放所需的 4px，最近邻按点取样会得到噪点状边缘而不是像素簇；需让角色在源图里占比更小，或导出改为 BOX 平均并量化色板",
+    "帧 04 挥出：源图平均色块宽 1.15px，低于导出缩放所需的 4px，最近邻按点取样会得到噪点状边缘而不是像素簇；需让角色在源图里占比更小，或导出改为 BOX 平均并量化色板",
+    "帧 05 命中：源图平均色块宽 1.17px，低于导出缩放所需的 4px，最近邻按点取样会得到噪点状边缘而不是像素簇；需让角色在源图里占比更小，或导出改为 BOX 平均并量化色板",
+    "帧 06 跟随：内容被源图边界裁掉（left），该帧需重新生成或扩画布",
+    "帧 06 跟随：源图平均色块宽 1.13px，低于导出缩放所需的 4px，最近邻按点取样会得到噪点状边缘而不是像素簇；需让角色在源图里占比更小，或导出改为 BOX 平均并量化色板",
+    "帧 07 收势：源图平均色块宽 1.1px，低于导出缩放所需的 4px，最近邻按点取样会得到噪点状边缘而不是像素簇；需让角色在源图里占比更小，或导出改为 BOX 平均并量化色板"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "canvas": [
+    384,
+    256
+  ],
+  "root_px": [
+    176,
+    246
+  ],
+  "character_id": "hero_memory",
+  "equipment_id": "one_hand_sword",
+  "source": "imagegen_complete_frames",
+  "clips": {
+    "slash": {
+      "loop": false,
+      "next": "idle",
+      "frames": [
+        {
+          "id": 1,
+          "path": "slash/01.png",
+          "duration_ms": 70,
+          "event": ""
+        },
+        {
+          "id": 2,
+          "path": "slash/02.png",
+          "duration_ms": 90,
+          "event": ""
+        },
+        {
+          "id": 3,
+          "path": "slash/03.png",
+          "duration_ms": 100,
+          "event": ""
+        },
+        {
+          "id": 4,
+          "path": "slash/04.png",
+          "duration_ms": 40,
+          "event": ""
+        },
+        {
+          "id": 5,
+          "path": "slash/05.png",
+          "duration_ms": 70,
+          "event": "hit"
+        },
+        {
+          "id": 6,
+          "path": "slash/06.png",
+          "duration_ms": 60,
+          "event": ""
+        },
+        {
+          "id": 7,
+          "path": "slash/07.png",
+          "duration_ms": 110,
+          "event": ""
+        },
+        {
+          "id": 8,
+          "path": "slash/08.png",
+          "duration_ms": 80,
+          "event": ""
+        }
+      ]
+    },
+    "idle": {
+      "loop": true,
+      "next": "idle",
+      "frames": [
+        {
+          "id": 1,
+          "path": "idle/01.png",
+          "duration_ms": 500,
+          "event": ""
+        }
+      ]
+    }
+  }
+}
