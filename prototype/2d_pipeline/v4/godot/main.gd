@@ -11,6 +11,7 @@ var playing := true
 var looping := false
 var speed := 1.0
 var hits := 0
+var playable := false
 
 func _ready() -> void:
 	var parsed = JSON.parse_string(FileAccess.get_file_as_string("res://assets/manifest.json"))
@@ -19,6 +20,13 @@ func _ready() -> void:
 		get_tree().quit(1)
 		return
 	manifest = parsed
+	var clips: Dictionary = manifest.get("clips", {})
+	if clips.is_empty():
+		_show_retired()
+		if "--verify" in OS.get_cmdline_user_args():
+			_write_verify({"errors":["no playable clips"],"loaded_textures":0,"duration_ms":0,"checks":["retired"]})
+			get_tree().quit(1)
+		return
 	for animation in manifest.clips.values():
 		for frame in animation.frames:
 			var texture = load("res://assets/" + str(frame.path)) as Texture2D
@@ -52,8 +60,27 @@ func _ready() -> void:
 	status.position = Vector2(28,664)
 	status.add_theme_font_size_override("font_size",16)
 	add_child(status)
+	playable = true
 	_apply_frame()
 	if "--verify" in OS.get_cmdline_user_args(): _verify()
+
+func _show_retired() -> void:
+	var title := Label.new()
+	title.text = "NO PLAYABLE CLIPS"
+	title.position = Vector2(28,22)
+	title.add_theme_font_size_override("font_size",24)
+	add_child(title)
+	status = Label.new()
+	status.position = Vector2(28,80)
+	status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	status.custom_minimum_size = Vector2(900,120)
+	var reason := "idle/slash retired"
+	var retired = manifest.get("retired", {})
+	if retired is Dictionary and str(retired.get("reason","")) != "":
+		reason = str(retired.reason)
+	status.text = reason
+	add_child(status)
+	playing = false
 
 func _draw() -> void:
 	draw_rect(Rect2(0,0,960,720),Color("#0e1420"))
@@ -61,7 +88,7 @@ func _draw() -> void:
 	draw_line(Vector2(24,560),Vector2(936,560),Color("#485568"),1)
 
 func _process(delta: float) -> void:
-	if playing: _advance(delta*speed)
+	if playable and playing: _advance(delta*speed)
 
 func _advance(seconds: float) -> void:
 	elapsed += seconds
@@ -107,6 +134,7 @@ func _speed() -> void:
 	_apply_frame()
 
 func _unhandled_key_input(event: InputEvent) -> void:
+	if not playable: return
 	if event is InputEventKey and event.pressed and not event.echo:
 		match event.keycode:
 			KEY_SPACE: _attack()
@@ -138,8 +166,10 @@ func _verify() -> void:
 	_attack()
 	_advance(duration)
 	if clip != "slash" or frame_index != 0: errors.append("Loop failed")
-	var result := {"errors":errors,"loaded_textures":cache.size(),"duration_ms":roundi(duration*1000),"checks":["timing","idle_transition","hit_event","replay","step","loop"]}
+	_write_verify({"errors":errors,"loaded_textures":cache.size(),"duration_ms":roundi(duration*1000),"checks":["timing","idle_transition","hit_event","replay","step","loop"]})
+	get_tree().quit(0 if errors.is_empty() else 1)
+
+func _write_verify(result: Dictionary) -> void:
 	var file := FileAccess.open(ProjectSettings.globalize_path("res://").path_join("../preview/2026-09-26-播放检查.json"),FileAccess.WRITE)
 	file.store_string(JSON.stringify(result,"\t"))
 	print(JSON.stringify(result))
-	get_tree().quit(0 if errors.is_empty() else 1)

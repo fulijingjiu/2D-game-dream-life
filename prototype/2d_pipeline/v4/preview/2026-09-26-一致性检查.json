@@ -1,4 +1,7 @@
 {
+  "palette": "config/palette.candidate.json",
+  "palette_colours": 22,
+  "palette_off_colour_max": 0,
   "frames": [
     {
       "frame": 1,
@@ -19,7 +22,10 @@
       "source_edge_bleed": [],
       "colour_drift_vs_frame_01": 0.0,
       "opaque_px": 266178,
-      "body_height_deviation": 0.0088
+      "body_height_deviation": 0.0088,
+      "palette_off_colours": 8897,
+      "palette_off_px": 16455,
+      "palette_sampled_opaque_px": 16611
     },
     {
       "frame": 2,
@@ -40,7 +46,10 @@
       "source_edge_bleed": [],
       "colour_drift_vs_frame_01": 0.1802,
       "opaque_px": 295621,
-      "body_height_deviation": 0.0
+      "body_height_deviation": 0.0,
+      "palette_off_colours": 9448,
+      "palette_off_px": 18458,
+      "palette_sampled_opaque_px": 18481
     },
     {
       "frame": 3,
@@ -61,7 +70,10 @@
       "source_edge_bleed": [],
       "colour_drift_vs_frame_01": 0.1709,
       "opaque_px": 335521,
-      "body_height_deviation": -0.0243
+      "body_height_deviation": -0.0243,
+      "palette_off_colours": 9900,
+      "palette_off_px": 20931,
+      "palette_sampled_opaque_px": 20965
     },
     {
       "frame": 4,
@@ -82,7 +94,10 @@
       "source_edge_bleed": [],
       "colour_drift_vs_frame_01": 0.261,
       "opaque_px": 346919,
-      "body_height_deviation": 0.0044
+      "body_height_deviation": 0.0044,
+      "palette_off_colours": 10194,
+      "palette_off_px": 21655,
+      "palette_sampled_opaque_px": 21687
     },
     {
       "frame": 5,
@@ -103,7 +118,10 @@
       "source_edge_bleed": [],
       "colour_drift_vs_frame_01": 0.1813,
       "opaque_px": 359610,
-      "body_height_deviation": -0.0232
+      "body_height_deviation": -0.0232,
+      "palette_off_colours": 9249,
+      "palette_off_px": 22400,
+      "palette_sampled_opaque_px": 22458
     },
     {
       "frame": 6,
@@ -126,7 +144,10 @@
       ],
       "colour_drift_vs_frame_01": 0.2378,
       "opaque_px": 321854,
-      "body_height_deviation": -0.0154
+      "body_height_deviation": -0.0154,
+      "palette_off_colours": 9686,
+      "palette_off_px": 20073,
+      "palette_sampled_opaque_px": 20116
     },
     {
       "frame": 7,
@@ -147,7 +168,10 @@
       "source_edge_bleed": [],
       "colour_drift_vs_frame_01": 0.2644,
       "opaque_px": 270011,
-      "body_height_deviation": 0.0143
+      "body_height_deviation": 0.0143,
+      "palette_off_colours": 9141,
+      "palette_off_px": 16855,
+      "palette_sampled_opaque_px": 16874
     }
   ],
   "warnings": [
@@ -158,6 +182,13 @@
     "帧 05 命中：源图平均色块宽 1.17px，低于导出缩放所需的 4px，最近邻按点取样会得到噪点状边缘而不是像素簇；需让角色在源图里占比更小，或导出改为 BOX 平均并量化色板",
     "帧 06 跟随：内容被源图边界裁掉（left），该帧需重新生成或扩画布",
     "帧 06 跟随：源图平均色块宽 1.13px，低于导出缩放所需的 4px，最近邻按点取样会得到噪点状边缘而不是像素簇；需让角色在源图里占比更小，或导出改为 BOX 平均并量化色板",
-    "帧 07 收势：源图平均色块宽 1.1px，低于导出缩放所需的 4px，最近邻按点取样会得到噪点状边缘而不是像素簇；需让角色在源图里占比更小，或导出改为 BOX 平均并量化色板"
+    "帧 07 收势：源图平均色块宽 1.1px，低于导出缩放所需的 4px，最近邻按点取样会得到噪点状边缘而不是像素簇；需让角色在源图里占比更小，或导出改为 BOX 平均并量化色板",
+    "帧 01 战斗待机：导出取样后有 8897 个现行 22 色板（方案 B）以外的颜色（16455/16611 个不透明像素不在板上）。闭合色板不接受板外色；这些像素会按最近色、无抖动贴回色板，色阶会被压平",
+    "帧 02 回收蓄力：导出取样后有 9448 个现行 22 色板（方案 B）以外的颜色（18458/18481 个不透明像素不在板上）。闭合色板不接受板外色；这些像素会按最近色、无抖动贴回色板，色阶会被压平",
+    "帧 03 蓄力峰值：导出取样后有 9900 个现行 22 色板（方案 B）以外的颜色（20931/20965 个不透明像素不在板上）。闭合色板不接受板外色；这些像素会按最近色、无抖动贴回色板，色阶会被压平",
+    "帧 04 挥出：导出取样后有 10194 个现行 22 色板（方案 B）以外的颜色（21655/21687 个不透明像素不在板上）。闭合色板不接受板外色；这些像素会按最近色、无抖动贴回色板，色阶会被压平",
+    "帧 05 命中：导出取样后有 9249 个现行 22 色板（方案 B）以外的颜色（22400/22458 个不透明像素不在板上）。闭合色板不接受板外色；这些像素会按最近色、无抖动贴回色板，色阶会被压平",
+    "帧 06 跟随：导出取样后有 9686 个现行 22 色板（方案 B）以外的颜色（20073/20116 个不透明像素不在板上）。闭合色板不接受板外色；这些像素会按最近色、无抖动贴回色板，色阶会被压平",
+    "帧 07 收势：导出取样后有 9141 个现行 22 色板（方案 B）以外的颜色（16855/16874 个不透明像素不在板上）。闭合色板不接受板外色；这些像素会按最近色、无抖动贴回色板，色阶会被压平"
   ]
 }

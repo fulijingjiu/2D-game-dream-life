@@ -1,7 +1,8 @@
 """Align generated complete frames, audit cross-frame consistency and package a playable pixel sequence.
 
 ImageGen owns artwork. This step measures feet, audits the generated set against
-the export grid, aligns, samples the export pixel grid and packs frames; all
+the export grid, aligns, samples the export pixel grid, snaps opaque pixels to
+the scheme B palette (nearest colour, no dither) and packs frames; all
 full-resolution originals are kept unchanged.
 """
 from pathlib import Path
@@ -16,6 +17,11 @@ TIMES=[70,90,100,40,70,60,110,80]
 CANVAS=(384,256)
 ROOT=(176,246)
 HEIGHT_WARN=0.025
+# Closed board: any opaque colour on the sampled export grid that is not an
+# exact palette entry is foreign. One is already too many for pixel art,
+# because the snap below will repaint it. Continuous-tone sources warn.
+PALETTE_OFF_COLOUR_MAX=0
+PALETTE_PATH=BASE/'config'/'palette.candidate.json'
 PREVIEW=BASE/'preview'
 ASSETS=BASE/'godot/assets'
 for folder in [PREVIEW,ASSETS/'slash',ASSETS/'idle']:folder.mkdir(parents=True,exist_ok=True)
@@ -68,6 +74,72 @@ def colour_distance(a,b):
     keys=set(a)|set(b)
     return round(sum(abs(a.get(k,0)-b.get(k,0)) for k in keys)/2,4)
 
+def load_palette(path):
+    """Scheme B board. The JSON is the source of truth; export refuses any other count."""
+    doc=json.loads(path.read_text())
+    colours=[]
+    for entry in doc['colours']:
+        rgb=tuple(int(v) for v in entry['rgb'])
+        if len(rgb)!=3 or any(v<0 or v>255 for v in rgb):
+            raise ValueError(f'palette rgb out of range: {entry.get("role","")} {rgb}')
+        hex_s=str(entry['hex']).lstrip('#').lower()
+        expect=f'{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}'
+        if hex_s!=expect:
+            raise ValueError(f'palette {entry.get("role","")} hex {entry["hex"]} does not match rgb {rgb}')
+        colours.append(rgb)
+    if len(colours)!=22:
+        raise ValueError(f'现行 22 色板需要 22 色，{path.name} 里有 {len(colours)} 色')
+    if len(set(colours))!=len(colours):
+        raise ValueError(f'{path.name} 有重复色')
+    return colours
+
+def rgba_pixels(im):
+    """Pillow 12 renamed getdata to get_flattened_data; keep the older name working."""
+    reader=getattr(im,'get_flattened_data',None)
+    return reader() if reader else im.getdata()
+
+def palette_deviation(im,palette_set):
+    """Distinct opaque colours that are not exact palette entries. Transparent pixels are ignored."""
+    off=set();opaque=off_px=0
+    for r,g,b,a in rgba_pixels(im):
+        if a<128:continue
+        opaque+=1
+        if (r,g,b) not in palette_set:
+            off.add((r,g,b));off_px+=1
+    return len(off),off_px,opaque
+
+def map_nearest_palette(im,palette):
+    """Snap opaque pixels to the nearest palette colour. No dither. Equal distances keep the earlier entry."""
+    cache={}
+    out=[]
+    for r,g,b,a in rgba_pixels(im):
+        if a<128:
+            out.append((r,g,b,a));continue
+        key=(r,g,b)
+        mapped=cache.get(key)
+        if mapped is None:
+            best_d=1<<62;best=palette[0]
+            for colour in palette:
+                d=(r-colour[0])**2+(g-colour[1])**2+(b-colour[2])**2
+                if d<best_d:
+                    best_d=d;best=colour
+                    if d==0:break
+            mapped=best;cache[key]=mapped
+        out.append((mapped[0],mapped[1],mapped[2],255))
+    im.putdata(out)
+    return im
+
+def sample_export(im,index,overrides):
+    """Nearest-neighbour sample onto the export scale, then hard alpha. Palette snap is separate."""
+    origin,soles=feet(im)
+    frame_override=overrides.get(str(index),{})
+    origin=frame_override.get('origin',origin)
+    scale=CANVAS[0]/im.width*frame_override.get('scale',1.0)
+    sampled=im.resize((round(im.width*scale),round(im.height*scale)),Image.Resampling.NEAREST)
+    sampled.putalpha(sampled.getchannel('A').point(lambda value:255 if value>=128 else 0))
+    offset=(ROOT[0]-round(origin[0]*scale),ROOT[1]-round(origin[1]*scale))
+    return origin,soles,scale,sampled,offset
+
 def audit(files):
     """Measure the generated set against the export assumptions. Returns (per-frame rows, warnings)."""
     rows=[];warnings=[];ref=None;heads=[]
@@ -106,29 +178,52 @@ def audit(files):
 def main():
     overrides_path=BASE/'registration.json'
     overrides=json.loads(overrides_path.read_text()) if overrides_path.exists() else {}
+    if not PALETTE_PATH.exists():raise SystemExit(f'Missing palette: {PALETTE_PATH}')
+    palette=load_palette(PALETTE_PATH);palette_set=set(palette)
     files=[BASE/'source'/f'2026-09-26-{i+1:02d}-{n}.png' for i,n in enumerate(NAMES)]
+    # Retired curved-blade set. Palette snap below stays; do not point this list
+    # back at source/obsolete-curved-blade. Next sources must match the form sheet.
+    if any(p.name.startswith('2026-09-26-') for p in files):
+        raise SystemExit(
+            '2026-09-26 slash sources are retired: the blade does not match '
+            'docs/美术/形制/初始近战-三视握点.jpg. Do not export them. '
+            'Next frames must match that sheet and palette B '
+            '(nearest colour, no dither; still implemented in this script).')
     if not all(p.exists() for p in files[:7]):raise SystemExit('Generate source frames 01 through 07 first.')
     shutil.copy2(files[0],files[7])
     # Frame 08 is a byte copy of frame 01, so only 01-07 are independent samples.
     audit_rows,audit_warnings=audit(files[:7])
-    (PREVIEW/'2026-09-26-一致性检查.json').write_text(json.dumps({'frames':audit_rows,'warnings':audit_warnings},indent=2,ensure_ascii=False))
+    prepared=[]
+    for i,path in enumerate(files):
+        im=Image.open(path).convert('RGBA')
+        origin,soles,scale,sampled,offset=sample_export(im,i+1,overrides)
+        if i<7:
+            off_colours,off_px,opaque=palette_deviation(sampled,palette_set)
+            audit_rows[i]['palette_off_colours']=off_colours
+            audit_rows[i]['palette_off_px']=off_px
+            audit_rows[i]['palette_sampled_opaque_px']=opaque
+            if off_colours>PALETTE_OFF_COLOUR_MAX:
+                audit_warnings.append(
+                    f"帧 {i+1:02d} {NAMES[i]}：导出取样后有 {off_colours} 个现行 22 色板（方案 B）以外的颜色"
+                    f"（{off_px}/{opaque} 个不透明像素不在板上）。闭合色板不接受板外色；"
+                    f"这些像素会按最近色、无抖动贴回色板，色阶会被压平")
+        prepared.append((origin,soles,scale,sampled,offset,path,list(im.size)))
+    (PREVIEW/'2026-09-26-一致性检查.json').write_text(json.dumps({
+        'palette':'config/palette.candidate.json','palette_colours':len(palette),
+        'palette_off_colour_max':PALETTE_OFF_COLOUR_MAX,
+        'frames':audit_rows,'warnings':audit_warnings},indent=2,ensure_ascii=False))
     for text in audit_warnings:print(f'WARN {text}')
     if '--strict' in sys.argv and audit_warnings:raise SystemExit(f'{len(audit_warnings)} consistency warnings; see preview/2026-09-26-一致性检查.json')
     records=[];frames=[];manifest={'canvas':list(CANVAS),'root_px':list(ROOT),'character_id':'hero_memory','equipment_id':'one_hand_sword','source':'imagegen_complete_frames','clips':{}}
-    for i,path in enumerate(files):
-        im=Image.open(path).convert('RGBA')
-        origin,soles=feet(im)
-        origin=overrides.get(str(i+1),{}).get('origin',origin)
-        scale=CANVAS[0]/im.width*overrides.get(str(i+1),{}).get('scale',1.0)
-        sampled=im.resize((round(im.width*scale),round(im.height*scale)),Image.Resampling.NEAREST)
-        # Export uses hard alpha for crisp gameplay edges; source RGBA stays untouched.
-        sampled.putalpha(sampled.getchannel('A').point(lambda value:255 if value>=128 else 0))
-        offset=(ROOT[0]-round(origin[0]*scale),ROOT[1]-round(origin[1]*scale))
+    for i,(origin,soles,scale,sampled,offset,path,source_size) in enumerate(prepared):
+        map_nearest_palette(sampled,palette)
         exported=Image.new('RGBA',CANVAS);exported.paste(sampled,offset)
         bbox=exported.getchannel('A').getbbox()
         if not bbox or min(bbox[0],bbox[1],CANVAS[0]-bbox[2],CANVAS[1]-bbox[3])<2:raise ValueError(f'Frame {i+1} touches export boundary: {bbox}')
+        left=palette_deviation(exported,palette_set)[0]
+        if left:raise ValueError(f'Frame {i+1} still has {left} off-palette colours after mapping')
         exported.save(ASSETS/'slash'/f'{i+1:02d}.png');frames.append(exported)
-        records.append({'frame':i+1,'name':NAMES[i],'source':path.name,'source_size':list(im.size),'source_root':origin,'source_sole_ranges':soles,'scale':scale,'offset':offset,'export_bbox':bbox})
+        records.append({'frame':i+1,'name':NAMES[i],'source':path.name,'source_size':source_size,'source_root':origin,'source_sole_ranges':soles,'scale':scale,'offset':offset,'export_bbox':bbox})
     assert frames[0].tobytes()==frames[-1].tobytes(),'Loop seam mismatch'
     frames[0].save(ASSETS/'idle/01.png')
     manifest['clips']['slash']={'loop':False,'next':'idle','frames':[{'id':i+1,'path':f'slash/{i+1:02d}.png','duration_ms':ms,'event':'hit' if i==4 else ''} for i,ms in enumerate(TIMES)]}
@@ -149,6 +244,6 @@ def main():
         animation.append(matte.convert('RGB').resize((CANVAS[0]*3,CANVAS[1]*3),Image.Resampling.NEAREST))
     animation[0].save(PREVIEW/'2026-09-26-逐张绘制完整横斩.gif',save_all=True,append_images=animation[1:],duration=[350,*TIMES,400],loop=0,disposal=2)
     (PREVIEW/'manifest.json').write_text(json.dumps(manifest,indent=2))
-    print(json.dumps({'frames':len(frames),'duration_ms':sum(TIMES),'root':ROOT,'source_sizes':[r['source_size'] for r in records],'sole_widths':[[b-a for a,b in r['source_sole_ranges']] for r in records]},indent=2))
+    print(json.dumps({'frames':len(frames),'duration_ms':sum(TIMES),'root':ROOT,'palette_colours':len(palette),'palette_off_colours':[row['palette_off_colours'] for row in audit_rows],'source_sizes':[r['source_size'] for r in records],'sole_widths':[[b-a for a,b in r['source_sole_ranges']] for r in records]},indent=2))
 
 if __name__=='__main__':main()
