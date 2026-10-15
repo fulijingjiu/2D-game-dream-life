@@ -4,7 +4,7 @@
 
 ## 现行
 
-- [横斩样板完成记录](横斩样板完成记录.md)：M0，idle + slash 的验收入口。
+- [横斩样板完成记录](横斩样板完成记录.md)：2026-09-26 的 idle + slash 已于 2026-10-15 撤回（弯刃）。M0 是否完成只看[故事框架](../设定/故事框架.md)。
 - 播放与导出：[`v4/`](../../prototype/2d_pipeline/v4/)、[`v4/preview/`](../../prototype/2d_pipeline/v4/preview/)、[`build_sequence.py`](../../prototype/2d_pipeline/v4/build_sequence.py)、[`run_demo.sh`](../../prototype/2d_pipeline/v4/run_demo.sh)。
 - [逐张生图动作制作方案](../../prototype/2d_pipeline/2026-09-26-逐张生图动作制作方案.md)：现行 8 帧横斩的制作记录。
 - [主角造型与像素制作规范](../../prototype/2d_pipeline/2026-09-26-主角造型与像素制作规范.md)：第 1–4 节为现行造型与现行 22 色板（方案 B）；第 5–9 节为已停用的 Blender 2.5D 规格，用历史时态书写。

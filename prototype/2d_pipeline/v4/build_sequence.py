@@ -181,6 +181,14 @@ def main():
     if not PALETTE_PATH.exists():raise SystemExit(f'Missing palette: {PALETTE_PATH}')
     palette=load_palette(PALETTE_PATH);palette_set=set(palette)
     files=[BASE/'source'/f'2026-09-26-{i+1:02d}-{n}.png' for i,n in enumerate(NAMES)]
+    # Retired curved-blade set. Palette snap below stays; do not point this list
+    # back at source/obsolete-curved-blade. Next sources must match the form sheet.
+    if any(p.name.startswith('2026-09-26-') for p in files):
+        raise SystemExit(
+            '2026-09-26 slash sources are retired: the blade does not match '
+            'docs/美术/形制/初始近战-三视握点.jpg. Do not export them. '
+            'Next frames must match that sheet and palette B '
+            '(nearest colour, no dither; still implemented in this script).')
     if not all(p.exists() for p in files[:7]):raise SystemExit('Generate source frames 01 through 07 first.')
     shutil.copy2(files[0],files[7])
     # Frame 08 is a byte copy of frame 01, so only 01-07 are independent samples.

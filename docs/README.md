@@ -38,7 +38,7 @@
 
 美术小样本体在 `prototype/2d_pipeline/`，不在 `docs/`：
 
-- 现行主干 `v4/`：源帧 `v4/source/`、构建脚本 `v4/build_sequence.py`、导出与 `manifest.json` 在 `v4/godot/assets/`、预览在 `v4/preview/`。
+- 现行主干 `v4/`：构建脚本 `v4/build_sequence.py`、导出与 `manifest.json` 在 `v4/godot/assets/`、预览在 `v4/preview/`。`idle` / `slash` 的 2026-09-26 导出和源帧已撤（弯刃，与形制图不符），manifest 的 `clips` 为空，**现在不可播放**。下一版帧须符合[初始近战三视+握点](美术/形制/初始近战-三视握点.jpg)，并经现行 22 色板（方案 B）导出。M0 状态只看[故事框架](设定/故事框架.md)。
 - 色板文件：`prototype/2d_pipeline/v4/config/palette.candidate.json`。文档里称 **现行 22 色板（方案 B）**。文件名仍带 `candidate`，改名后置。`build_sequence.py` 导出时已按此板对不透明像素做最近色、无抖动映射。重跑方式见 [`v4/config/README.md`](../prototype/2d_pipeline/v4/config/README.md)。
 - 造型依据：`prototype/2d_pipeline/reference/2026-09-26-主角三视图像素重绘.png`。
 - [主角造型与像素制作规范](../prototype/2d_pipeline/2026-09-26-主角造型与像素制作规范.md) 与 [逐张生图动作制作方案](../prototype/2d_pipeline/2026-09-26-逐张生图动作制作方案.md) 留在原目录。规范第 1–4 节是现行造型与色值；第 5–9 节是已停用的 Blender 路线，用历史时态书写。
@@ -64,7 +64,7 @@
 - 防御、瞬步、钩索的最终按键。冷却 / 资源 / 烛火的具体公式仍未定，但不挡 M1，随 M2 / 回点交付（见技能总览）。
 - 关卡中锚点、攀爬墙、可炸墙的图标。
 
-角色外观在视觉锚点里仍标暂定。动作文档中的「角色」是可替换的绘制主体；角色名只用于外观参考，不表示动作或技能专属。`docs/` 不含序列帧图片；现行帧在 `prototype/2d_pipeline/v4/`。
+角色外观在视觉锚点里仍标暂定。动作文档中的「角色」是可替换的绘制主体；角色名只用于外观参考，不表示动作或技能专属。`docs/` 不含序列帧图片。`idle` / `slash` 旧导出已撤，重出之前 `v4/godot/assets/` 没有可播放角色帧。
 
 ## 文件命名
 
