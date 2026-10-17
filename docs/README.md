@@ -40,7 +40,7 @@
 
 美术小样本体在 `prototype/2d_pipeline/`，不在 `docs/`：
 
-- 现行主干 `v4/`：构建脚本 `v4/build_sequence.py`、导出与 `manifest.json` 在 `v4/godot/assets/`、预览在 `v4/preview/`。`idle` / `slash` 的 2026-09-26 导出和源帧已撤（弯刃，与形制图不符），manifest 的 `clips` 为空，**现在不可播放**。下一版帧须符合[初始近战三视+握点](美术/形制/初始近战-三视握点.jpg)，并经现行 22 色板（方案 B）导出。M0 状态只看[故事框架](设定/故事框架.md)。
+- 现行主干 `v4/`：构建脚本 `v4/build_sequence.py`、导出与 `manifest.json` 在 `v4/godot/assets/`、预览在 `v4/preview/`。`idle` / `slash` 的 2026-09-26 导出和源帧已撤（弯刃，与形制图不符），manifest 的 `clips` 为空，**现在不可播放**。`v4/preview/obsolete-curved-blade/`（八帧检查图、透明总图、`2026-09-26-逐张绘制完整横斩.gif`）已硬删除，不要再链过去当参照；源帧仍在 `v4/source/obsolete-curved-blade/`。下一版帧须符合[初始近战三视+握点](美术/形制/初始近战-三视握点.jpg)，并经现行 22 色板（方案 B）导出。M0 状态只看[故事框架](设定/故事框架.md)。
 - 色板文件：`prototype/2d_pipeline/v4/config/palette.candidate.json`。文档里称 **现行 22 色板（方案 B）**。文件名仍带 `candidate`，改名后置。`build_sequence.py` 导出时已按此板对不透明像素做最近色、无抖动映射。重跑方式见 [`v4/config/README.md`](../prototype/2d_pipeline/v4/config/README.md)。
 - 造型依据：`prototype/2d_pipeline/reference/2026-09-26-主角三视图像素重绘.png`。
 - [主角造型与像素制作规范](../prototype/2d_pipeline/2026-09-26-主角造型与像素制作规范.md) 与 [逐张生图动作制作方案](../prototype/2d_pipeline/2026-09-26-逐张生图动作制作方案.md) 留在原目录。规范第 1–4 节是现行造型与色值；第 5–9 节是已停用的 Blender 路线，用历史时态书写。
@@ -49,7 +49,7 @@
 ## 读写约定
 
 - 交叉引用用相对路径。
-- 禁止指向已删除的 V1–V3 目录、V2 帧表和三份 Blender 本地 HTML。
+- 禁止指向已删除的 V1–V3 目录、V2 帧表、三份 Blender 本地 HTML，以及已硬删除的 `v4/preview/obsolete-curved-blade/`。
 - `_archive/` 只读，不得作为资产命名、关卡标题或角色人数的依据。
 - 里程碑状态只改 [故事框架](设定/故事框架.md) 里的那一张表。玩法探索和技能总览只引用，不复制整表。
 - 色板一律称「现行 22 色板（方案 B）」，不要写成未定稿。
